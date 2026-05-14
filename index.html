@@ -1384,14 +1384,11 @@
     }
 
     // Submeter formulário
-    function submitForm(event) {
+    async function submitForm(event) {
       event.preventDefault();
       const form = event.target;
       const btn = form.querySelector('button[type="submit"]');
       const originalText = btn.textContent;
-
-      btn.textContent = 'Enviando...';
-      btn.disabled = true;
 
       const noticias = document.getElementById('noticias').checked;
       const voluntario = document.getElementById('voluntario').checked;
@@ -1402,34 +1399,44 @@
 
       if (!noticias && !voluntario) {
         alert('Por favor, escolha pelo menos uma opção de participação.');
-        btn.textContent = originalText;
-        btn.disabled = false;
         return;
       }
 
       if (!lgpd) {
         alert('Por favor, aceite a Política de Privacidade para continuar.');
-        btn.textContent = originalText;
-        btn.disabled = false;
         return;
       }
 
-      const payload = {
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+
+      const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbx2mTV8A5_O1Ot49Pb8M5cEhq4xlAML_VqXuMSA-jNPKEY_KNy6t3hCaW41Wur49tOiKA/exec';
+
+      const payload = new URLSearchParams({
         nome: form.nome.value,
         email: form.email.value,
         whatsapp: form.whatsapp.value,
         cidade: form.cidade.value,
-        noticias: noticias,
-        voluntario: voluntario,
+        noticias: noticias ? 'Sim' : 'Não',
+        voluntario: voluntario ? 'Sim' : 'Não',
         frentes: frentes.join(', ') || 'Nenhuma',
-        lgpd: lgpd
-      };
+        lgpd: lgpd ? 'Sim' : 'Não'
+      });
 
-      setTimeout(() => {
-        form.style.display = 'none';
-        document.getElementById('celebrationScreen').classList.add('show');
-        criarConfete();
-      }, 800);
+      try {
+        await fetch(SHEETS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: payload
+        });
+      } catch (error) {
+        console.error('Erro ao enviar para o Sheets:', error);
+      }
+
+      form.style.display = 'none';
+      document.getElementById('celebrationScreen').classList.add('show');
+      criarConfete();
     }
 
     function voltarParaHome() {
