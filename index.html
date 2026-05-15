@@ -1427,11 +1427,9 @@
       });
 
       try {
-        await fetch(SHEETS_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: payload
+        await fetch(SHEETS_URL + '?' + payload.toString(), {
+          method: 'GET',
+          mode: 'no-cors'
         });
       } catch (error) {
         console.error('Erro ao enviar para o Sheets:', error);
@@ -1468,15 +1466,14 @@
 
     function registrarCliqueRede(rede) {
       if (!window._submissaoId) return;
-      fetch(SHEETS_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          action: 'update_rede',
-          submissao_id: window._submissaoId,
-          rede: rede
-        })
+      const params = new URLSearchParams({
+        action: 'update_rede',
+        submissao_id: window._submissaoId,
+        rede: rede
+      });
+      fetch(SHEETS_URL + '?' + params.toString(), {
+        method: 'GET',
+        mode: 'no-cors'
       }).catch(() => {});
     }
 
