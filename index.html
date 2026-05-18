@@ -1412,10 +1412,7 @@
 
       const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbx2mTV8A5_O1Ot49Pb8M5cEhq4xlAML_VqXuMSA-jNPKEY_KNy6t3hCaW41Wur49tOiKA/exec';
 
-      window._submissaoId = Date.now() + '-' + Math.random().toString(36).substr(2, 9);
-
       const payload = new URLSearchParams({
-        submissao_id: window._submissaoId,
         nome: form.nome.value,
         email: form.email.value,
         whatsapp: form.whatsapp.value,
@@ -1426,16 +1423,25 @@
         lgpd: lgpd ? 'Sim' : 'Não'
       });
 
+      window._submissaoId = null; // Apps Script vai gerar o ID
+
+      const url = SHEETS_URL + '?' + payload.toString();
+      console.log('Enviando para Sheets:', url);
+
       try {
         const img = new Image();
-        img.src = SHEETS_URL + '?' + payload.toString();
+        img.onload = img.onerror = () => {
+          form.style.display = 'none';
+          document.getElementById('celebrationScreen').classList.add('show');
+          criarConfete();
+        };
+        img.src = url;
       } catch (error) {
         console.error('Erro ao enviar para o Sheets:', error);
+        form.style.display = 'none';
+        document.getElementById('celebrationScreen').classList.add('show');
+        criarConfete();
       }
-
-      form.style.display = 'none';
-      document.getElementById('celebrationScreen').classList.add('show');
-      criarConfete();
     }
 
     function voltarParaHome() {
