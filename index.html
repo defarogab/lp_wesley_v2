@@ -122,6 +122,8 @@
 
     .hero-photo-hero {
       width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
       height: auto;
       position: relative;
       display: flex;
@@ -132,11 +134,11 @@
     .hero-photo-hero::before {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: 10%;
       left: 50%;
       transform: translateX(-50%);
-      width: 85%;
-      height: 85%;
+      width: 80%;
+      height: 70%;
       background: radial-gradient(ellipse at center, rgba(59,181,84,.35) 0%, rgba(59,181,84,0) 65%);
       filter: blur(20px);
       z-index: 0;
@@ -150,6 +152,8 @@
       position: relative;
       z-index: 1;
       filter: drop-shadow(0 16px 32px rgba(0,0,0,.45));
+      -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
     }
 
     @media (max-width: 900px) {
