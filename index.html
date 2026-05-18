@@ -1423,7 +1423,7 @@
         lgpd: lgpd ? 'Sim' : 'Não'
       });
 
-      window._submissaoId = null; // Apps Script vai gerar o ID
+      window._submissaoNome = form.nome.value;
 
       const url = SHEETS_URL + '?' + payload.toString();
       console.log('Enviando para Sheets:', url);
@@ -1469,10 +1469,10 @@
     const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzTrz0Pk6TwMozNY_a4DuBkUYYCv66cRqsUfqNPYnjEaOOOPE49M0zJhYhDNRdIHmy7dA/exec';
 
     function registrarCliqueRede(rede) {
-      if (!window._submissaoId) return;
+      if (!window._submissaoNome) return;
       const params = new URLSearchParams({
         action: 'update_rede',
-        submissao_id: window._submissaoId,
+        nome: window._submissaoNome,
         rede: rede
       });
       try {
