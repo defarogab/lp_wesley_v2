@@ -1502,14 +1502,14 @@
     const frentes = [
       {
         id: 'multiplicador',
-        title: 'Multiplicador Digital',
+        title: 'Replicadores das Redes Sociais',
         description: 'Replica os conteúdos da campanha nas suas redes sociais e grupos de WhatsApp. Ideal para quem tem pouco tempo e quer contribuir de onde estiver.',
         icon: '📣',
         recommended: true
       },
       {
         id: 'redes-sociais',
-        title: 'Redes Sociais',
+        title: 'Gabinete Digital da Periferia',
         description: 'Cria conteúdo, memes, reels e histórias. Amplifica a mensagem da campanha nos ambientes digitais.',
         icon: '📱'
       },
@@ -1556,7 +1556,7 @@
       const container = document.querySelector('.frentes-grid');
       container.innerHTML = frentes.map(f => `
         <label class="frente-item ${f.recommended ? 'frente-item-recommended' : ''}">
-          ${f.recommended ? '<span class="frente-badge">⭐ Ideal para você</span>' : ''}
+          ${f.recommended ? '<span class="frente-badge">⭐ Ideal para quem tem pouco tempo</span>' : ''}
           <input type="checkbox" name="frentes" value="${f.id}" data-max="3" />
           <div class="frente-item-content">
             <div class="frente-item-title">${f.title}</div>
