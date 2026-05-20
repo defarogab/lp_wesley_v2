@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#C24221" />
+<title>Sobre o Wesley — Guia para Voluntários</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #F2EBDD;
+    --cream-2: #E8DFCC;
+    --ink: #1A1815;
+    --terra: #C24221;
+    --terra-deep: #8E2C13;
+    --forest: #1F3D2E;
+    --gold: #D7A24B;
+    --paper: #FAF6EE;
+
+    /* Fluid scale — tudo ancora no clamp(min, vw, max) */
+    --pad-x: clamp(20px, 5vw, 80px);
+    --pad-y: clamp(48px, 8vw, 90px);
+
+    --fs-eyebrow: clamp(13px, 2.4vw, 22px);
+    --fs-title: clamp(34px, 9vw, 96px);
+    --fs-display: clamp(40px, 14vw, 160px);
+    --fs-display-lg: clamp(44px, 15vw, 170px);
+    --fs-deck: clamp(17px, 2.6vw, 28px);
+    --fs-body: clamp(16px, 2.4vw, 26px);
+    --fs-body-lg: clamp(18px, 2.7vw, 30px);
+    --fs-quote: clamp(28px, 5.5vw, 60px);
+    --fs-meta: clamp(13px, 2.2vw, 22px);
+    --fs-num-xl: clamp(54px, 11vw, 110px);
+    --fs-num-lg: clamp(40px, 8vw, 80px);
+    --fs-section-title: clamp(28px, 5vw, 50px);
+    --fs-frase: clamp(22px, 4vw, 40px);
+    --fs-warning: clamp(44px, 14vw, 140px);
+
+    --gap-md: clamp(16px, 3vw, 32px);
+    --gap-lg: clamp(28px, 5vw, 56px);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--cream);
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* SECTION = slide */
+  section.s {
+    width: 100%;
+    padding: var(--pad-y) var(--pad-x);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-lg);
+    position: relative;
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  .eyebrow {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra);
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(8px, 1.6vw, 16px);
+  }
+  .eyebrow::before {
+    content: "";
+    width: clamp(28px, 5vw, 48px);
+    height: 3px;
+    background: var(--terra);
+    display: inline-block;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: clamp(20px, 4vw, 36px);
+    border-top: 1px solid rgba(26,24,21,0.15);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(26,24,21,0.55);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer .right { display: flex; gap: 14px; align-items: center; }
+  .footer .dot { width: 5px; height: 5px; background: currentColor; border-radius: 50%; }
+
+  .title-block { display: flex; flex-direction: column; gap: clamp(12px, 2.2vw, 22px); }
+  .title-block h2 {
+    margin: 0;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-title);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    overflow-wrap: anywhere;
+  }
+  .title-block h2 em { font-style: normal; color: var(--terra); }
+  .title-block .deck {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: var(--fs-deck);
+    line-height: 1.4;
+    color: rgba(26,24,21,0.72);
+  }
+
+  /* COVER */
+  section.cover { background: var(--terra); color: var(--paper); }
+  section.cover .footer { color: rgba(255,245,230,0.7); border-top-color: rgba(255,245,230,0.2); }
+  .cover-tag {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--paper);
+    opacity: 0.9;
+  }
+  .cover-title {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-display);
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--paper);
+    overflow-wrap: anywhere;
+  }
+  .cover-title em { font-style: normal; color: var(--gold); display: block; }
+  .cover-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(8px, 1.4vw, 14px) clamp(14px, 2.8vw, 28px);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+  }
+  .cover-meta span:not(:last-child)::after { content: "·"; margin-left: clamp(14px, 2.8vw, 28px); opacity: 0.6; }
+  .cover-quote-box {
+    background: var(--terra-deep);
+    border-radius: 6px;
+    padding: clamp(24px, 5vw, 56px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 2.8vw, 28px);
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .cover-quote-box::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% -30% auto;
+    width: 70%;
+    height: 80%;
+    background: radial-gradient(circle at center, rgba(215,162,75,0.28), transparent 60%);
+  }
+  .cover-quote {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-quote);
+    line-height: 1.05;
+    color: var(--paper);
+    letter-spacing: -0.005em;
+    position: relative;
+    text-wrap: pretty;
+    overflow-wrap: anywhere;
+  }
+  .cover-quote .mark { color: var(--gold); font-size: 1.3em; line-height: 0; vertical-align: -0.2em; margin-right: 8px; }
+  .cover-attrib {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    position: relative;
+  }
+  .cover-sub {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 500;
+    font-size: var(--fs-deck);
+    line-height: 1.3;
+    color: var(--paper);
+    opacity: 0.92;
+    max-width: 800px;
+  }
+
+  /* IDENTITY */
+  .portrait {
+    min-height: clamp(220px, 50vw, 480px);
+    background: var(--cream-2);
+    border-radius: 4px;
+    background-image: repeating-linear-gradient(45deg, transparent 0 14px, rgba(26,24,21,0.06) 14px 15px);
+    display: flex;
+    align-items: flex-end;
+    padding: clamp(14px, 2.4vw, 28px);
+    position: relative;
+    overflow: hidden;
+  }
+  .portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    z-index: 1;
+  }
+  .portrait-label {
+    font-family: 'Archivo', monospace;
+    font-weight: 600;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(26,24,21,0.5);
+    background: var(--cream);
+    padding: 8px 14px;
+    border: 1px dashed rgba(26,24,21,0.3);
+    position: relative;
+    z-index: 2;
+  }
+  .id-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(8px, 1.4vw, 12px);
+  }
+  .id-tag {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.04em;
+    padding: clamp(8px, 1.4vw, 12px) clamp(14px, 2.4vw, 24px);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+  }
+  .id-tag.solid { background: var(--ink); color: var(--paper); }
+  .id-tag.terra { background: var(--terra); color: var(--paper); border-color: var(--terra); }
+  .id-tag.forest { background: var(--forest); color: var(--paper); border-color: var(--forest); }
+  .id-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: var(--fs-body-lg);
+    line-height: 1.4;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .id-body strong { font-weight: 700; color: var(--terra-deep); }
+  .id-body.accent { border-left: 4px solid var(--terra); padding-left: clamp(14px, 2.4vw, 24px); }
+
+  /* TRAJETÓRIA */
+  .traj-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .traj-item {
+    display: grid;
+    grid-template-columns: clamp(80px, 14vw, 180px) 1fr;
+    gap: clamp(16px, 3vw, 32px);
+    padding: clamp(18px, 3vw, 28px) 0;
+    border-top: 2px solid var(--ink);
+    align-items: center;
+  }
+  .traj-item:last-child { border-bottom: 2px solid var(--ink); }
+  .traj-num {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-num-lg);
+    line-height: 1;
+    color: var(--terra);
+  }
+  .traj-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: var(--fs-body-lg);
+    line-height: 1.3;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .traj-text b { font-weight: 700; }
+
+  /* VOTOS */
+  .votes-table-wrap { overflow-x: auto; }
+  .votes-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 320px;
+  }
+  .votes-table th, .votes-table td {
+    text-align: left;
+    padding: clamp(18px, 3.6vw, 36px) clamp(8px, 1.6vw, 16px);
+    border-bottom: 2px solid var(--ink);
+  }
+  .votes-table th {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(26,24,21,0.6);
+    border-bottom: 3px solid var(--ink);
+    padding-top: 0;
+  }
+  .votes-table td.disputa {
+    font-size: var(--fs-body-lg);
+    font-weight: 600;
+    font-family: 'Archivo', sans-serif;
+    line-height: 1.2;
+  }
+  .votes-table td.ano {
+    font-size: var(--fs-body);
+    font-weight: 600;
+    color: rgba(26,24,21,0.6);
+    width: 22%;
+    font-family: 'Archivo', sans-serif;
+  }
+  .votes-table td.votos {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 7vw, 72px);
+    color: var(--ink);
+    text-align: right;
+    width: 30%;
+    letter-spacing: -0.01em;
+  }
+  .votes-table tr.meta td.votos { color: var(--terra); }
+  .votes-table tr.meta td.disputa::after {
+    content: "META";
+    margin-left: 10px;
+    font-size: 0.55em;
+    letter-spacing: 0.2em;
+    background: var(--terra);
+    color: var(--paper);
+    padding: 3px 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  .votes-note {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body-lg);
+    color: rgba(26,24,21,0.7);
+    line-height: 1.4;
+    border-left: 4px solid var(--terra);
+    padding-left: clamp(14px, 2.4vw, 24px);
+  }
+
+  /* BANDEIRAS */
+  .bandeiras {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2.4vw, 22px);
+  }
+  .bandeira {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: clamp(22px, 4vw, 44px);
+    display: grid;
+    grid-template-columns: clamp(70px, 13vw, 150px) 1fr;
+    gap: clamp(18px, 3.6vw, 36px);
+    align-items: start;
+  }
+  .bandeira:nth-child(2) { background: var(--terra); color: var(--paper); border-color: var(--terra); }
+  .bandeira:nth-child(3) { background: var(--forest); color: var(--paper); border-color: var(--forest); }
+  .bandeira-num {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-num-xl);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+  }
+  .bandeira:nth-child(1) .bandeira-num { color: var(--terra); }
+  .bandeira:nth-child(2) .bandeira-num { color: var(--paper); }
+  .bandeira:nth-child(3) .bandeira-num { color: var(--gold); }
+  .bandeira-body { display: flex; flex-direction: column; gap: clamp(10px, 1.8vw, 18px); }
+  .bandeira-title {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-section-title);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .bandeira ul {
+    margin: 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: clamp(6px, 1vw, 10px);
+  }
+  .bandeira li {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: var(--fs-body);
+    line-height: 1.3;
+    padding-left: clamp(16px, 2.4vw, 22px);
+    position: relative;
+  }
+  .bandeira li::before {
+    content: ""; position: absolute; left: 0; top: 0.55em;
+    width: 8px; height: 8px;
+    background: currentColor;
+  }
+
+  /* DIFERENCIAL */
+  .differ-stack {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(28px, 5vw, 48px);
+    align-items: center;
+  }
+  .differ-venn {
+    width: min(100%, 520px);
+    aspect-ratio: 1;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .venn-circle {
+    position: absolute;
+    width: 52%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(20px, 5vw, 52px);
+    text-transform: uppercase;
+    color: var(--paper);
+    text-align: center;
+    line-height: 1;
+    mix-blend-mode: multiply;
+  }
+  .v1 { background: var(--terra); top: 4%; left: 2%; }
+  .v2 { background: var(--forest); top: 4%; right: 2%; }
+  .v3 { background: var(--gold); bottom: 2%; left: 50%; transform: translateX(-50%); color: var(--ink); }
+  .differ-text { display: flex; flex-direction: column; gap: clamp(14px, 2.4vw, 24px); align-self: stretch; }
+  .differ-text .lead {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-section-title);
+    line-height: 1.0;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .differ-text .lead em { font-style: normal; color: var(--terra); }
+  .differ-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .differ-text .scripture {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 4.2vw, 38px);
+    color: var(--terra);
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  /* FRASES */
+  .frases-grid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2.4vw, 22px);
+  }
+  .frase {
+    background: var(--paper);
+    border-left: 8px solid var(--terra);
+    padding: clamp(22px, 4vw, 40px) clamp(24px, 4.8vw, 48px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.8vw, 18px);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-frase);
+    line-height: 1.15;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .frase:nth-child(2) { border-color: var(--forest); }
+  .frase:nth-child(3) { border-color: var(--gold); }
+  .frase:nth-child(4) { border-color: var(--ink); }
+  .frase-tag {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(26,24,21,0.5);
+  }
+
+  /* PERFIS */
+  .perfis-table-wrap { overflow-x: auto; }
+  .perfis-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 320px;
+  }
+  .perfis-table th, .perfis-table td {
+    padding: clamp(18px, 3.2vw, 32px) clamp(8px, 1.6vw, 16px);
+    text-align: left;
+    border-bottom: 2px solid var(--ink);
+    vertical-align: top;
+  }
+  .perfis-table th {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(26,24,21,0.6);
+    border-bottom: 3px solid var(--ink);
+    padding-top: 0;
+  }
+  .perfis-table td.persona {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 3.6vw, 34px);
+    color: var(--terra);
+    text-transform: uppercase;
+    width: 42%;
+    line-height: 1.1;
+  }
+  .perfis-table td.message {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: var(--fs-body);
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  /* CONTRIBUIR */
+  .contrib-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(14px, 2.4vw, 22px);
+  }
+  .contrib-card {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: clamp(22px, 4vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.6vw, 16px);
+  }
+  .contrib-card.full { grid-column: 1 / -1; }
+  .contrib-num {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(56px, 12vw, 120px);
+    line-height: 0.85;
+    color: var(--terra);
+    letter-spacing: -0.02em;
+  }
+  .contrib-title {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(22px, 4vw, 40px);
+    line-height: 1.0;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .contrib-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: var(--fs-body);
+    line-height: 1.35;
+    color: rgba(26,24,21,0.78);
+  }
+  @media (max-width: 560px) {
+    .contrib-grid { grid-template-columns: 1fr; }
+    .contrib-card.full { grid-column: auto; }
+  }
+
+  /* LEGISLAÇÃO */
+  section.leg-frame { background: var(--ink); color: var(--paper); }
+  section.leg-frame .footer { color: rgba(250,246,238,0.5); border-top-color: rgba(250,246,238,0.15); }
+  section.leg-frame .title-block h2 { color: var(--paper); }
+  section.leg-frame .title-block h2 em { color: var(--gold); }
+  section.leg-frame .eyebrow { color: var(--gold); }
+  section.leg-frame .eyebrow::before { background: var(--gold); }
+  .leg-warning {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-warning);
+    line-height: 0.92;
+    text-transform: uppercase;
+    color: var(--gold);
+    overflow-wrap: anywhere;
+  }
+  .leg-warning small {
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.18em;
+    color: rgba(250,246,238,0.6);
+    margin-top: clamp(10px, 1.8vw, 18px);
+  }
+  .leg-list {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column; gap: clamp(16px, 2.8vw, 28px);
+  }
+  .leg-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body-lg);
+    line-height: 1.35;
+    padding-left: clamp(24px, 4vw, 40px);
+    position: relative;
+    color: var(--paper);
+    text-wrap: pretty;
+  }
+  .leg-list li::before {
+    content: ""; position: absolute; left: 0; top: 0.6em;
+    width: clamp(12px, 2vw, 18px); height: 3px; background: var(--gold);
+  }
+
+  /* CLOSING */
+  section.closing { background: var(--terra); color: var(--paper); }
+  section.closing .footer { color: rgba(255,245,230,0.7); border-top-color: rgba(255,245,230,0.2); }
+  .closing-eyebrow {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .closing-display {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-display-lg);
+    line-height: 0.86;
+    text-transform: uppercase;
+    color: var(--paper);
+    letter-spacing: -0.015em;
+    overflow-wrap: anywhere;
+  }
+  .closing-display em { font-style: normal; color: var(--gold); display: block; }
+  .closing-foot {
+    margin-top: clamp(12px, 2vw, 24px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(10px, 1.8vw, 20px);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+    align-items: center;
+  }
+  .closing-foot .pill {
+    border: 2px solid var(--paper);
+    padding: clamp(8px, 1.4vw, 12px) clamp(14px, 2.4vw, 22px);
+    border-radius: 999px;
+  }
+
+  /* Section divider for visual rhythm between slides on long-scroll */
+  section.s + section.s { border-top: 1px solid rgba(0,0,0,0.06); }
+</style>
+</head>
+<body>
+
+<!-- 1. COVER -->
+<section class="s cover" data-screen-label="01 Capa">
+  <div class="cover-tag">Guia para voluntários · Pré-campanha 2026</div>
+  <div class="cover-title">Quem é<em>Wesley</em></div>
+  <div class="cover-meta">
+    <span>Pré-Candidato a<br/>Deputado Estadual</span>
+    <span>PSB</span>
+    <span>ALERJ 2026</span>
+  </div>
+  <div class="cover-sub">Material para voluntários que querem entender — e contar — a história do Wesley.</div>
+  <div class="cover-quote-box">
+    <div class="cover-quote"><span class="mark">“</span>Fiz mais pelo povo de Caxias sem a caneta na mão do que muitos que estão há anos com ela.”</div>
+    <div class="cover-attrib">— Wesley Teixeira</div>
+  </div>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Periferia</span><span class="dot"></span><span>01</span></span></div>
+</section>
+
+<!-- 2. WHO HE IS -->
+<section class="s" data-screen-label="02 Quem é">
+  <div class="title-block">
+    <span class="eyebrow">Identidade</span>
+    <h2>Quem é<br/><em>Wesley Teixeira</em></h2>
+  </div>
+  <div class="portrait"><img src="Fotos_Wesley_Teixeira_-_por_Fellipe_Seixas_-31.png.jpg" alt="Wesley Teixeira"><div class="portrait-label">Foto · Wesley em Caxias</div></div>
+  <div class="id-tags">
+    <span class="id-tag solid">32 anos</span>
+    <span class="id-tag">Morro do Sapo</span>
+    <span class="id-tag">Duque de Caxias</span>
+    <span class="id-tag terra">Negro</span>
+    <span class="id-tag forest">Evangélico</span>
+    <span class="id-tag terra">Progressista</span>
+  </div>
+  <div class="id-body">Filho de pastores. Uma combinação que <strong>a maioria das pessoas ainda acha impossível</strong> — mas que em Wesley é completamente coerente e autêntica.</div>
+  <div class="id-body accent">Ele não é um político que virou ativista. É o contrário: <strong>um ativista com 18 anos de luta</strong> que decidiu ocupar a política para mudar a Baixada e as periferias do Rio.</div>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Identidade</span><span class="dot"></span><span>02</span></span></div>
+</section>
+
+<!-- 3. TRAJETÓRIA -->
+<section class="s" data-screen-label="03 Trajetória">
+  <div class="title-block">
+    <span class="eyebrow">Trajetória</span>
+    <h2>Construída<br/><em>antes da política</em></h2>
+    <div class="deck">A legitimidade do Wesley vem do que ele fez sem a caneta na mão. São 18 anos de movimento social.</div>
+  </div>
+  <div class="traj-list">
+    <div class="traj-item"><div class="traj-num">13</div><div class="traj-text"><b>Aos 13 anos</b>, organizava estudantes no Colégio Irineu Marinho, em Caxias.</div></div>
+    <div class="traj-item"><div class="traj-num">40k</div><div class="traj-text">Mobilizou <b>+40 mil pessoas</b> nas Jornadas de Junho em Caxias.</div></div>
+    <div class="traj-item"><div class="traj-num">300+</div><div class="traj-text">Criou do zero o pré-vestibular <b>Nós em Movimento</b> — colocou +300 jovens da Baixada na universidade.</div></div>
+    <div class="traj-item"><div class="traj-num">45k</div><div class="traj-text">Na pandemia, organizou <b>Tem Gente Com Fome</b>: 45 mil cestas básicas distribuídas.</div></div>
+    <div class="traj-item"><div class="traj-num">★</div><div class="traj-text">Lutou pela <b>moradia de dezenas de famílias</b> ameaçadas de remoção na comunidade do Lixão — e venceu.</div></div>
+    <div class="traj-item"><div class="traj-num">PL</div><div class="traj-text">Aprovou <b>PL de assistência habitacional</b> na Câmara Municipal de Caxias.</div></div>
+  </div>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Trajetória</span><span class="dot"></span><span>03</span></span></div>
+</section>
+
+<!-- 4. VOTOS -->
+<section class="s" data-screen-label="04 Votos">
+  <div class="title-block">
+    <span class="eyebrow">Reconhecimento</span>
+    <h2>O que <em>os votos</em><br/>já mostram</h2>
+    <div class="deck">A trajetória do Wesley não é só história — ela já tem reconhecimento real nas urnas, com crescimento contínuo a cada disputa.</div>
+  </div>
+  <div class="votes-table-wrap">
+    <table class="votes-table">
+      <thead>
+        <tr>
+          <th>Disputa</th>
+          <th>Ano</th>
+          <th style="text-align:right;">Votos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="disputa">Vereador<br/>Duque de Caxias (PSOL)</td><td class="ano">2020</td><td class="votos">3.311</td></tr>
+        <tr><td class="disputa">Deputado Estadual (PSB)</td><td class="ano">2022</td><td class="votos">21.361</td></tr>
+        <tr><td class="disputa">Prefeito<br/>Duque de Caxias (PSB)</td><td class="ano">2024</td><td class="votos">23.329</td></tr>
+        <tr class="meta"><td class="disputa">Deputado Estadual (PSB)</td><td class="ano">2026</td><td class="votos">40.000+</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="votes-note">Crescimento de mais de 6× em quatro anos. A meta para 2026 é dobrar o resultado de 2024.</div>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Votos</span><span class="dot"></span><span>04</span></span></div>
+</section>
+
+<!-- 5. BANDEIRAS -->
+<section class="s" data-screen-label="05 Bandeiras na ALERJ">
+  <div class="title-block">
+    <span class="eyebrow">Plataforma</span>
+    <h2>Três bandeiras<br/><em>na ALERJ</em></h2>
+    <div class="deck">Todas ligadas à realidade vivida na Baixada e nas periferias.</div>
+  </div>
+  <div class="bandeiras">
+    <div class="bandeira">
+      <div class="bandeira-num">01</div>
+      <div class="bandeira-body">
+        <div class="bandeira-title">Universidade do Povo</div>
+        <ul>
+          <li>Defender e ampliar as cotas na UERJ</li>
+          <li>Acesso e permanência na universidade</li>
+          <li>Valorizar pré-vestibulares populares</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bandeira">
+      <div class="bandeira-num">02</div>
+      <div class="bandeira-body">
+        <div class="bandeira-title">Mundo do Trabalho</div>
+        <ul>
+          <li>Economia criativa da periferia</li>
+          <li>Seguridade para trabalhadores de app</li>
+          <li>Apoio ao fim da escala 6×1</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bandeira">
+      <div class="bandeira-num">03</div>
+      <div class="bandeira-body">
+        <div class="bandeira-title">Cidades Verdes e Seguras</div>
+        <ul>
+          <li>Combate às enchentes e retomada do PAC Iguaçu</li>
+          <li>Modernização dos trens da Supervia</li>
+          <li>Combater fuzis, barricadas e armas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Plataforma</span><span class="dot"></span><span>05</span></span></div>
+</section>
+
+<!-- 6. DIFERENCIAL -->
+<section class="s" data-screen-label="06 O diferencial">
+  <div class="title-block">
+    <span class="eyebrow">Como falar dele</span>
+    <h2>O diferencial<br/><em>que ninguém tem</em></h2>
+  </div>
+  <div class="differ-stack">
+    <div class="differ-venn">
+      <div class="venn-circle v1"><span>Negro</span></div>
+      <div class="venn-circle v2"><span>Evangélico</span></div>
+      <div class="venn-circle v3"><span>Progressista</span></div>
+    </div>
+    <div class="differ-text">
+      <div class="lead">Uma combinação <em>rara — e por isso poderosa.</em></div>
+      <p>Quando alguém disser que isso não combina, a história de vida dele é a resposta. A fé do Wesley não é escudo conservador: é o que o move a cuidar de quem mais precisa.</p>
+      <div class="scripture">Mateus 25 e Isaías 58, postos em prática.</div>
+    </div>
+  </div>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Diferencial</span><span class="dot"></span><span>06</span></span></div>
+</section>
+
+<!-- 7. FRASES -->
+<section class="s" data-screen-label="07 Frases que funcionam">
+  <div class="title-block">
+    <span class="eyebrow">Argumentário</span>
+    <h2>Frases que <em>funcionam</em><br/>na conversa</h2>
+  </div>
+  <div class="frases-grid">
+    <div class="frase">
+      <div>“Wesley criou o pré-vestibular quando precisava, antes de qualquer mandato. Já imaginou o que ele pode fazer com uma cadeira na ALERJ?”</div>
+      <div class="frase-tag">Trajetória</div>
+    </div>
+    <div class="frase">
+      <div>“Ele distribuiu 45 mil cestas na pandemia. O Estado sumiu — ele foi lá.”</div>
+      <div class="frase-tag">Ação concreta</div>
+    </div>
+    <div class="frase">
+      <div>“É o único pré-candidato que fala de Caxias porque cresceu lá, não porque visitou.”</div>
+      <div class="frase-tag">Territorialidade</div>
+    </div>
+    <div class="frase">
+      <div>“Ser evangélico progressista não é contradição pra ele. É Mateus 25 sendo posto em prática.”</div>
+      <div class="frase-tag">Fé e política</div>
+    </div>
+  </div>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Argumentário</span><span class="dot"></span><span>07</span></span></div>
+</section>
+
+<!-- 8. PERFIS -->
+<section class="s" data-screen-label="08 Para cada perfil">
+  <div class="title-block">
+    <span class="eyebrow">Conversando com cada um</span>
+    <h2>Para cada perfil,<br/><em>o que ressaltar</em></h2>
+  </div>
+  <div class="perfis-table-wrap">
+    <table class="perfis-table">
+      <thead>
+        <tr>
+          <th>Se a pessoa é…</th>
+          <th>O que dizer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="persona">Mãe ou pai preocupado com educação</td><td class="message">Wesley criou pré-vestibular popular e defende cotas. Educação é a vida dele.</td></tr>
+        <tr><td class="persona">Evangélico que não se vê no bolsonarismo</td><td class="message">Fé que cuida — Isaías 58, Mateus 25. Não usa Deus como escudo político.</td></tr>
+        <tr><td class="persona">Jovem que quer entrar na faculdade</td><td class="message">O Nós em Movimento já colocou +300 jovens da Baixada na universidade.</td></tr>
+        <tr><td class="persona">Morador da Baixada cansado de promessa</td><td class="message">Fez mais sem mandato do que muitos com anos de cargo.</td></tr>
+        <tr><td class="persona">Progressista que quer representação periférica</td><td class="message">Negro, de Caxias, com linguagem que atravessa territórios.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Personas</span><span class="dot"></span><span>08</span></span></div>
+</section>
+
+<!-- 9. CONTRIBUIR -->
+<section class="s" data-screen-label="09 Como contribuir">
+  <div class="title-block">
+    <span class="eyebrow">Sua vez</span>
+    <h2>Como <em>você pode</em><br/>contribuir</h2>
+    <div class="deck">Cinco formas de fazer parte da campanha:</div>
+  </div>
+  <div class="contrib-grid">
+    <div class="contrib-card">
+      <div class="contrib-num">1</div>
+      <div class="contrib-title">Militância digital</div>
+      <div class="contrib-body">Compartilhar conteúdo e abrir listas no WhatsApp.</div>
+    </div>
+    <div class="contrib-card">
+      <div class="contrib-num">2</div>
+      <div class="contrib-title">Comícios caseiros</div>
+      <div class="contrib-body">Receber amigos e familiares para apresentar a candidatura.</div>
+    </div>
+    <div class="contrib-card">
+      <div class="contrib-num">3</div>
+      <div class="contrib-title">Voluntariado</div>
+      <div class="contrib-body">Reuniões, ações de rua e mobilização territorial.</div>
+    </div>
+    <div class="contrib-card">
+      <div class="contrib-num">4</div>
+      <div class="contrib-title">Pré-vestibular</div>
+      <div class="contrib-body">Ser professor voluntário no Nós em Movimento.</div>
+    </div>
+    <div class="contrib-card full">
+      <div class="contrib-num">5</div>
+      <div class="contrib-title">Doação</div>
+      <div class="contrib-body">Contribuir financeiramente de forma legal e transparente.</div>
+    </div>
+  </div>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Contribuir</span><span class="dot"></span><span>09</span></span></div>
+</section>
+
+<!-- 10. LEGISLAÇÃO -->
+<section class="s leg-frame" data-screen-label="10 Atenção legislação">
+  <div class="title-block">
+    <span class="eyebrow">Atenção</span>
+    <h2>Antes de agir,<br/><em>leia com calma</em></h2>
+  </div>
+  <div class="leg-warning">
+    Lei nº<br/>9.504/97
+    <small>Legislação eleitoral</small>
+  </div>
+  <ul class="leg-list">
+    <li>O voluntariado político é permitido e <b>não precisa ser remunerado</b>.</li>
+    <li>Doações só podem ser feitas por pessoas físicas, com limite definido pelo TSE.</li>
+    <li>A distribuição de material gráfico só é permitida <b>após o registro oficial da candidatura — a partir de 15/08/2026</b>.</li>
+    <li>Em qualquer dúvida, consulte sempre a coordenação da campanha antes de agir.</li>
+  </ul>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Legislação</span><span class="dot"></span><span>10</span></span></div>
+</section>
+
+<!-- 11. CLOSING -->
+<section class="s closing" data-screen-label="11 Da periferia para a ALERJ">
+  <div class="closing-eyebrow">Wesley Teixeira · Pré-Candidato a Deputado Estadual · 2026</div>
+  <div class="closing-display">Faça parte<em>desse time!</em></div>
+  <div class="closing-foot">
+    <span class="pill">Perifa Rio</span>
+    <span class="pill">PSB</span>
+    <span>Conte essa história.</span>
+  </div>
+  <div class="footer"><span>Sobre o Wesley</span><span class="right"><span>Encerramento</span><span class="dot"></span><span>11</span></span></div>
+</section>
+
+</body>
+</html>

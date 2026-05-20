@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#C24221" />
+<title>Cartilha do Voluntário — Wesley Teixeira 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #F2EBDD;
+    --cream-2: #E8DFCC;
+    --ink: #1A1815;
+    --terra: #C24221;
+    --terra-deep: #8E2C13;
+    --forest: #1F3D2E;
+    --gold: #D7A24B;
+    --paper: #FAF6EE;
+
+    --pad-x: clamp(20px, 5vw, 80px);
+    --pad-y: clamp(48px, 8vw, 90px);
+
+    --fs-eyebrow: clamp(13px, 2.4vw, 22px);
+    --fs-title: clamp(34px, 9vw, 96px);
+    --fs-display: clamp(40px, 14vw, 160px);
+    --fs-display-lg: clamp(44px, 15vw, 170px);
+    --fs-deck: clamp(17px, 2.6vw, 28px);
+    --fs-body: clamp(16px, 2.4vw, 26px);
+    --fs-body-lg: clamp(18px, 2.7vw, 30px);
+    --fs-quote: clamp(28px, 5.5vw, 60px);
+    --fs-meta: clamp(13px, 2.2vw, 22px);
+    --fs-num-xl: clamp(54px, 11vw, 110px);
+    --fs-num-lg: clamp(40px, 8vw, 80px);
+    --fs-section-title: clamp(28px, 5vw, 50px);
+    --fs-frase: clamp(22px, 4vw, 40px);
+    --fs-warning: clamp(44px, 14vw, 140px);
+
+    --gap-md: clamp(16px, 3vw, 32px);
+    --gap-lg: clamp(28px, 5vw, 56px);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--cream);
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  section.s {
+    width: 100%;
+    padding: var(--pad-y) var(--pad-x);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-lg);
+    position: relative;
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  .eyebrow {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra);
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(8px, 1.6vw, 16px);
+  }
+  .eyebrow::before {
+    content: "";
+    width: clamp(28px, 5vw, 48px);
+    height: 3px;
+    background: var(--terra);
+    display: inline-block;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: clamp(20px, 4vw, 36px);
+    border-top: 1px solid rgba(26,24,21,0.15);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(26,24,21,0.55);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer .right { display: flex; gap: 14px; align-items: center; }
+  .footer .dot { width: 5px; height: 5px; background: currentColor; border-radius: 50%; }
+
+  .title-block { display: flex; flex-direction: column; gap: clamp(12px, 2.2vw, 22px); }
+  .title-block h2 {
+    margin: 0;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-title);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    overflow-wrap: anywhere;
+  }
+  .title-block h2 em { font-style: normal; color: var(--terra); }
+  .title-block .deck {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: var(--fs-deck);
+    line-height: 1.4;
+    color: rgba(26,24,21,0.72);
+    text-wrap: pretty;
+  }
+
+  /* COVER */
+  section.cover { background: var(--terra); color: var(--paper); }
+  section.cover .footer { color: rgba(255,245,230,0.7); border-top-color: rgba(255,245,230,0.2); }
+  .cover-tag {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--paper);
+    opacity: 0.9;
+  }
+  .cover-title {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-display);
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--paper);
+    overflow-wrap: anywhere;
+  }
+  .cover-title em { font-style: normal; color: var(--gold); display: block; }
+  .cover-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(8px, 1.4vw, 14px) clamp(14px, 2.8vw, 28px);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+  }
+  .cover-meta span:not(:last-child)::after { content: "·"; margin-left: clamp(14px, 2.8vw, 28px); opacity: 0.6; }
+  .cover-sub {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 500;
+    font-size: var(--fs-deck);
+    line-height: 1.3;
+    color: var(--paper);
+    opacity: 0.92;
+    max-width: 800px;
+  }
+  .cover-pull {
+    background: var(--terra-deep);
+    border-radius: 6px;
+    padding: clamp(24px, 5vw, 56px);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-quote);
+    line-height: 1.05;
+    color: var(--paper);
+    letter-spacing: -0.005em;
+    position: relative;
+    overflow: hidden;
+    text-wrap: pretty;
+  }
+  .cover-pull em { font-style: normal; color: var(--gold); }
+  .cover-pull::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% -30% auto;
+    width: 70%;
+    height: 80%;
+    background: radial-gradient(circle at center, rgba(215,162,75,0.28), transparent 60%);
+  }
+
+  /* INDEX / SUMÁRIO */
+  .index-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .index-item {
+    display: grid;
+    grid-template-columns: clamp(50px, 9vw, 90px) 1fr clamp(20px, 4vw, 36px);
+    gap: clamp(14px, 2.4vw, 28px);
+    padding: clamp(18px, 3vw, 26px) 0;
+    border-top: 2px solid var(--ink);
+    align-items: baseline;
+    color: var(--ink);
+    text-decoration: none;
+    transition: padding-left 120ms ease;
+  }
+  .index-item:last-child { border-bottom: 2px solid var(--ink); }
+  .index-item:hover { padding-left: 8px; }
+  .index-num {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 48px);
+    line-height: 1;
+    color: var(--terra);
+  }
+  .index-label {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 3.8vw, 36px);
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .index-label small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: var(--fs-body);
+    color: rgba(26,24,21,0.6);
+    text-transform: none;
+    margin-top: 6px;
+    line-height: 1.35;
+  }
+  .index-arrow {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(20px, 4vw, 36px);
+    color: var(--ink);
+    text-align: right;
+  }
+
+  /* PHOTO BLOCK */
+  .photo {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--cream-2);
+    aspect-ratio: 4 / 5;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo.wide { aspect-ratio: 16 / 10; }
+  .photo.natural { aspect-ratio: unset; height: auto; }
+  .photo.natural img { height: auto; object-fit: contain; }
+
+  /* WELCOME — two-col on desktop, stacked on mobile */
+  .welcome-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-lg);
+  }
+  @media (min-width: 820px) {
+    .welcome-grid { grid-template-columns: 0.85fr 1fr; align-items: start; }
+  }
+  .welcome-body {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2.4vw, 22px);
+  }
+  .welcome-body p {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.5;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .welcome-body p strong { color: var(--terra-deep); }
+  .welcome-pull {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(24px, 4.4vw, 42px);
+    line-height: 1.05;
+    color: var(--ink);
+    text-transform: uppercase;
+    border-left: 6px solid var(--terra);
+    padding-left: clamp(14px, 2.4vw, 22px);
+    text-wrap: pretty;
+  }
+  .welcome-pull em { font-style: normal; color: var(--terra); }
+  .signature {
+    margin-top: clamp(8px, 2vw, 16px);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(24px, 4vw, 36px);
+    text-transform: uppercase;
+    color: var(--terra);
+    letter-spacing: -0.005em;
+  }
+  .signature small {
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.18em;
+    color: rgba(26,24,21,0.55);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* FRENTES — overview grid */
+  .frentes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(14px, 2.4vw, 22px);
+  }
+  @media (min-width: 720px) {
+    .frentes-grid { grid-template-columns: repeat(2, 1fr); }
+    .frente-card.transversal { grid-column: 1 / -1; }
+  }
+  .frente-card {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: clamp(22px, 4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.8vw, 18px);
+  }
+  .frente-card.transversal { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .frente-card.transversal .frente-num,
+  .frente-card.transversal .frente-name { color: var(--gold); }
+  .frente-card.transversal .frente-desc { color: rgba(250,246,238,0.85); }
+  .frente-card.f1 { background: var(--terra); color: var(--paper); border-color: var(--terra); }
+  .frente-card.f1 .frente-num { color: var(--gold); }
+  .frente-card.f1 .frente-name { color: var(--paper); }
+  .frente-card.f1 .frente-desc { color: rgba(255,245,230,0.9); }
+  .frente-card.f2 { background: var(--forest); color: var(--paper); border-color: var(--forest); }
+  .frente-card.f2 .frente-num { color: var(--gold); }
+  .frente-card.f2 .frente-name { color: var(--paper); }
+  .frente-card.f2 .frente-desc { color: rgba(250,246,238,0.9); }
+  .frente-card.f3 { background: var(--paper); color: var(--ink); }
+  .frente-card.f3 .frente-num { color: var(--terra); }
+  .frente-num {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .frente-name {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(26px, 4.6vw, 44px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .frente-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    color: rgba(26,24,21,0.78);
+    text-wrap: pretty;
+  }
+
+  /* SINGLE FRENTE — perfil + lista de ações */
+  .frente-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-lg);
+  }
+  @media (min-width: 820px) {
+    .frente-detail { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
+  }
+  .frente-perfil {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: clamp(22px, 4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 2vw, 18px);
+  }
+  .frente-perfil h3 {
+    margin: 0;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(26,24,21,0.55);
+  }
+  .frente-perfil p {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.45;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .frente-perfil p.role {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 3.4vw, 30px);
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: var(--terra);
+  }
+  .action-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: action;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .action-list li {
+    counter-increment: action;
+    display: grid;
+    grid-template-columns: clamp(38px, 6vw, 56px) 1fr;
+    gap: clamp(12px, 2.2vw, 22px);
+    padding: clamp(14px, 2.6vw, 22px) 0;
+    border-top: 1.5px solid var(--ink);
+    align-items: baseline;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .action-list li:last-child { border-bottom: 1.5px solid var(--ink); }
+  .action-list li::before {
+    content: counter(action, decimal-leading-zero);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(22px, 3.8vw, 32px);
+    color: var(--terra);
+    line-height: 1;
+  }
+  .action-list li b { font-weight: 700; }
+
+  /* DARK FRAME (used for transversal & legislation) */
+  section.dark { background: var(--ink); color: var(--paper); }
+  section.dark .footer { color: rgba(250,246,238,0.5); border-top-color: rgba(250,246,238,0.15); }
+  section.dark .title-block h2 { color: var(--paper); }
+  section.dark .title-block h2 em { color: var(--gold); }
+  section.dark .title-block .deck { color: rgba(250,246,238,0.8); }
+  section.dark .eyebrow { color: var(--gold); }
+  section.dark .eyebrow::before { background: var(--gold); }
+  section.dark .frente-perfil {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(250,246,238,0.2);
+    color: var(--paper);
+  }
+  section.dark .frente-perfil h3 { color: rgba(250,246,238,0.55); }
+  section.dark .frente-perfil p { color: var(--paper); }
+  section.dark .frente-perfil p.role { color: var(--gold); }
+  section.dark .action-list li {
+    color: var(--paper);
+    border-top-color: rgba(250,246,238,0.2);
+  }
+  section.dark .action-list li:last-child { border-bottom-color: rgba(250,246,238,0.2); }
+  section.dark .action-list li::before { color: var(--gold); }
+
+  /* PODE / NÃO PODE */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(14px, 2.4vw, 22px);
+  }
+  @media (min-width: 720px) {
+    .rules-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .rule-col {
+    border: 2px solid var(--ink);
+    padding: clamp(22px, 4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2.4vw, 22px);
+    background: var(--paper);
+  }
+  .rule-col.yes { border-color: var(--forest); }
+  .rule-col.no { border-color: var(--terra); background: #FDECE6; }
+  .rule-head {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.8vw, 16px);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(22px, 4vw, 36px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .rule-col.yes .rule-head { color: var(--forest); }
+  .rule-col.no .rule-head { color: var(--terra-deep); }
+  .rule-mark {
+    width: clamp(36px, 6vw, 56px);
+    height: clamp(36px, 6vw, 56px);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: clamp(24px, 4.2vw, 38px);
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .rule-col.yes .rule-mark { background: var(--forest); }
+  .rule-col.no .rule-mark { background: var(--terra); }
+  .rule-list {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 2vw, 18px);
+  }
+  .rule-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    padding-left: clamp(22px, 3vw, 28px);
+    position: relative;
+    text-wrap: pretty;
+  }
+  .rule-col.yes .rule-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: clamp(14px, 2.2vw, 18px);
+    height: clamp(8px, 1.4vw, 11px);
+    border-left: 3px solid var(--forest);
+    border-bottom: 3px solid var(--forest);
+    transform: rotate(-45deg);
+  }
+  .rule-col.no .rule-list li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.55em;
+    width: clamp(12px, 2vw, 16px);
+    height: clamp(12px, 2vw, 16px);
+    background:
+      linear-gradient(to bottom right, transparent 45%, var(--terra) 45% 55%, transparent 55%),
+      linear-gradient(to bottom left, transparent 45%, var(--terra) 45% 55%, transparent 55%);
+  }
+  .rule-list li b { font-weight: 700; }
+  .rule-note {
+    margin-top: clamp(20px, 3vw, 28px);
+    padding: clamp(18px, 3vw, 24px) clamp(18px, 3vw, 28px);
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    border-left: 6px solid var(--gold);
+    text-wrap: pretty;
+  }
+  .rule-note b { color: var(--gold); }
+
+  /* RITMO — 3 colunas */
+  .ritmo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(14px, 2.4vw, 22px);
+  }
+  @media (min-width: 760px) {
+    .ritmo-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .ritmo-card {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: clamp(22px, 4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 2vw, 18px);
+  }
+  .ritmo-card:nth-child(2) { background: var(--terra); color: var(--paper); border-color: var(--terra); }
+  .ritmo-card:nth-child(3) { background: var(--forest); color: var(--paper); border-color: var(--forest); }
+  .ritmo-num {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(50px, 9vw, 90px);
+    line-height: 0.85;
+    color: var(--terra);
+    letter-spacing: -0.02em;
+  }
+  .ritmo-card:nth-child(2) .ritmo-num { color: var(--gold); }
+  .ritmo-card:nth-child(3) .ritmo-num { color: var(--gold); }
+  .ritmo-title {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(22px, 3.8vw, 32px);
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .ritmo-body {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+  .ritmo-card:nth-child(2) .ritmo-body,
+  .ritmo-card:nth-child(3) .ritmo-body { color: rgba(255,245,230,0.92); }
+
+  /* MISSÕES — exemplo */
+  .missoes-block {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3.6vw, 32px);
+  }
+  .mission-formula {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(14px, 2.4vw, 18px);
+  }
+  @media (min-width: 720px) {
+    .mission-formula { grid-template-columns: repeat(3, 1fr); }
+  }
+  .mission-pill {
+    border: 2px solid var(--ink);
+    padding: clamp(18px, 3vw, 24px);
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mission-pill-label {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra);
+  }
+  .mission-pill-text {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 3.4vw, 28px);
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .mission-examples h3 {
+    margin: 0 0 clamp(12px, 2vw, 18px) 0;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(26,24,21,0.55);
+  }
+  .mission-list {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .mission-item {
+    display: grid;
+    grid-template-columns: clamp(110px, 22vw, 200px) 1fr;
+    gap: clamp(14px, 2.4vw, 24px);
+    padding: clamp(16px, 2.8vw, 22px) 0;
+    border-top: 2px solid var(--ink);
+    align-items: baseline;
+  }
+  .mission-item:last-child { border-bottom: 2px solid var(--ink); }
+  .mission-tag {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terra);
+  }
+  .mission-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: var(--fs-body-lg);
+    line-height: 1.35;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .mission-text q::before { content: "“"; color: var(--terra); font-weight: 800; }
+  .mission-text q::after { content: "”"; color: var(--terra); font-weight: 800; }
+
+  /* RECONHECIMENTO */
+  .reco-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(14px, 2.4vw, 22px);
+  }
+  @media (min-width: 720px) {
+    .reco-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .reco-card {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: clamp(22px, 4vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.6vw, 14px);
+  }
+  .reco-icon {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 6vw, 56px);
+    line-height: 1;
+    color: var(--terra);
+  }
+  .reco-title {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(22px, 3.6vw, 30px);
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .reco-body {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    color: rgba(26,24,21,0.78);
+    text-wrap: pretty;
+  }
+
+  /* TRAGA MAIS GENTE — split with photo */
+  .convite-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-lg);
+  }
+  @media (min-width: 820px) {
+    .convite-grid { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+  }
+  .convite-steps {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 2.8vw, 24px);
+  }
+  .convite-step {
+    display: grid;
+    grid-template-columns: clamp(60px, 11vw, 100px) 1fr;
+    gap: clamp(14px, 2.4vw, 22px);
+    align-items: start;
+  }
+  .convite-step-num {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(54px, 10vw, 100px);
+    line-height: 0.82;
+    color: var(--terra);
+    letter-spacing: -0.02em;
+  }
+  .convite-step-body { display: flex; flex-direction: column; gap: 8px; }
+  .convite-step-title {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(22px, 3.6vw, 32px);
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .convite-step-text {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    color: rgba(26,24,21,0.78);
+    text-wrap: pretty;
+  }
+  .convite-step-text em {
+    font-style: normal;
+    background: var(--cream-2);
+    padding: 2px 6px;
+    font-weight: 500;
+  }
+
+  /* CANAIS — coordenação a definir */
+  .canais-list {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .canais-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: clamp(16px, 2.8vw, 22px) 0;
+    border-top: 2px solid var(--ink);
+  }
+  @media (min-width: 720px) {
+    .canais-item { grid-template-columns: 0.95fr 1.05fr; gap: clamp(16px, 2.8vw, 28px); align-items: baseline; }
+  }
+  .canais-list .canais-item:last-child { border-bottom: 2px solid var(--ink); }
+  .canais-label {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(18px, 3vw, 26px);
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .canais-value {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    color: rgba(26,24,21,0.6);
+    font-style: italic;
+  }
+  .canais-value.pending::before {
+    content: "A DEFINIR";
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(10px, 1.8vw, 13px);
+    letter-spacing: 0.18em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-right: 12px;
+    font-style: normal;
+    vertical-align: middle;
+  }
+
+  /* CLOSING */
+  section.closing { background: var(--terra); color: var(--paper); }
+  section.closing .footer { color: rgba(255,245,230,0.7); border-top-color: rgba(255,245,230,0.2); }
+  .closing-eyebrow {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .closing-display {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-display-lg);
+    line-height: 0.86;
+    text-transform: uppercase;
+    color: var(--paper);
+    letter-spacing: -0.015em;
+    overflow-wrap: anywhere;
+  }
+  .closing-display em { font-style: normal; color: var(--gold); display: block; }
+  .closing-photo {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-top: clamp(12px, 2vw, 24px);
+  }
+  .closing-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+  .closing-foot {
+    margin-top: clamp(12px, 2vw, 24px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(10px, 1.8vw, 20px);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+    align-items: center;
+  }
+  .closing-foot .pill {
+    border: 2px solid var(--paper);
+    padding: clamp(8px, 1.4vw, 12px) clamp(14px, 2.4vw, 22px);
+    border-radius: 999px;
+  }
+
+  /* Back-to-top floating */
+  .totop {
+    position: fixed;
+    right: clamp(14px, 3vw, 24px);
+    bottom: clamp(14px, 3vw, 24px);
+    width: clamp(48px, 9vw, 56px);
+    height: clamp(48px, 9vw, 56px);
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(20px, 3.6vw, 24px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+  }
+  .totop.show { opacity: 1; pointer-events: auto; }
+  .totop:hover { background: var(--terra); }
+
+  section.dark .canais-item { border-top-color: rgba(250,246,238,0.2); }
+  section.dark .canais-list .canais-item:last-child { border-bottom-color: rgba(250,246,238,0.2); }
+  section.dark .canais-label { color: var(--paper); }
+  section.dark .canais-value { color: rgba(250,246,238,0.65); }
+
+  /* TERMO DE ADESÃO */
+  .termo-lead {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.5;
+    color: rgba(26,24,21,0.78);
+    max-width: 880px;
+    text-wrap: pretty;
+  }
+  .termo-lead b { color: var(--ink); }
+  .clauses {
+    list-style: none;
+    margin: 0; padding: 0;
+    counter-reset: clause;
+    display: flex;
+    flex-direction: column;
+  }
+  .clause {
+    counter-increment: clause;
+    display: grid;
+    grid-template-columns: clamp(60px, 9vw, 90px) 1fr;
+    gap: clamp(14px, 2.4vw, 24px);
+    padding: clamp(20px, 3.4vw, 32px) 0;
+    border-top: 2px solid var(--ink);
+    align-items: start;
+  }
+  .clause:last-child { border-bottom: 2px solid var(--ink); }
+  .clause::before {
+    content: counter(clause, decimal-leading-zero);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 5.2vw, 48px);
+    line-height: 1;
+    color: var(--terra);
+  }
+  .clause-body { display: flex; flex-direction: column; gap: clamp(10px, 1.8vw, 16px); }
+  .clause-title {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(22px, 3.8vw, 32px);
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .clause-body p {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.45;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .clause-body ul {
+    margin: 0; padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1.4vw, 12px);
+  }
+  .clause-body ul li {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    padding-left: clamp(18px, 2.6vw, 22px);
+    position: relative;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .clause-body ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 8px;
+    background: var(--terra);
+  }
+  .clause-body ul li b { font-weight: 700; }
+
+  /* FICHA INDIVIDUAL */
+  .ficha-intro {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 4vw, 36px);
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--terra);
+    border-left: 6px solid var(--terra);
+    padding-left: clamp(14px, 2.4vw, 22px);
+  }
+  .ficha-form {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: clamp(22px, 4vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 2.6vw, 22px);
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(12px, 2vw, 18px);
+  }
+  @media (min-width: 720px) {
+    .field-row.two { grid-template-columns: 1.4fr 1fr; }
+    .field-row.three { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .field-label {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(26,24,21,0.6);
+  }
+  .field-line {
+    border-bottom: 2px dashed rgba(26,24,21,0.4);
+    min-height: clamp(36px, 5.5vw, 48px);
+    width: 100%;
+  }
+  .checks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(10px, 2vw, 20px);
+    align-items: center;
+  }
+  .check {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    color: var(--ink);
+  }
+  .check-box {
+    width: clamp(20px, 3vw, 26px);
+    height: clamp(20px, 3vw, 26px);
+    border: 2px solid var(--ink);
+    flex-shrink: 0;
+    border-radius: 3px;
+  }
+  .ficha-final-text {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+    color: var(--ink);
+    text-wrap: pretty;
+    margin-top: clamp(8px, 1.6vw, 14px);
+  }
+  .signature-block {
+    margin-top: clamp(18px, 3vw, 28px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1.4vw, 12px);
+  }
+  .signature-block::before {
+    content: "";
+    display: block;
+    border-bottom: 2px solid var(--ink);
+    height: clamp(50px, 8vw, 72px);
+  }
+  .signature-caption {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: var(--fs-meta);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(26,24,21,0.6);
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. CAPA -->
+<section class="s cover" data-screen-label="01 Capa">
+  <div class="cover-tag">Pré-campanha · Wesley Teixeira 2026</div>
+  <div class="cover-title">Cartilha do<em>Voluntário</em></div>
+  <div class="cover-meta">
+    <span>PSB</span>
+    <span>Pré-Candidato a Deputado Estadual</span>
+    <span>ALERJ 2026</span>
+  </div>
+  <div class="cover-sub">Material de consulta para os voluntários da pré-campanha. Leia com calma, escolha onde se encaixa melhor, e em caso de dúvida — chama a gente.</div>
+  <div class="cover-pull">Essa campanha não é apenas sobre o Wesley — é sobre a gente.<br/><em>Faça parte desse time!</em></div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Faça parte desse time</span><span class="dot"></span><span>01</span></span></div>
+</section>
+
+<!-- 2. SUMÁRIO -->
+<section class="s" data-screen-label="02 Sumário">
+  <div class="title-block">
+    <span class="eyebrow">Sumário</span>
+    <h2>O que <em>tem aqui</em></h2>
+    <div class="deck">Toque em qualquer seção para ir direto até ela.</div>
+  </div>
+  <nav class="index-list">
+    <a class="index-item" href="#boas-vindas"><div class="index-num">01</div><div class="index-label">Boas-vindas<small>Uma palavra do Wesley</small></div><div class="index-arrow">→</div></a>
+    <a class="index-item" href="#frentes"><div class="index-num">02</div><div class="index-label">Como a gente se organiza<small>As frentes de voluntariado</small></div><div class="index-arrow">→</div></a>
+    <a class="index-item" href="#regras"><div class="index-num">03</div><div class="index-label">Pré-campanha<small>O que pode e o que não pode</small></div><div class="index-arrow">→</div></a>
+    <a class="index-item" href="#ritmo"><div class="index-num">04</div><div class="index-label">Ritmo semanal<small>Reuniões e missões</small></div><div class="index-arrow">→</div></a>
+    <a class="index-item" href="#reconhecimento"><div class="index-num">05</div><div class="index-label">Reconhecimento<small>Como a campanha valoriza quem está junto</small></div><div class="index-arrow">→</div></a>
+    <a class="index-item" href="#convite"><div class="index-num">06</div><div class="index-label">Traga mais gente<small>A campanha cresce por dentro</small></div><div class="index-arrow">→</div></a>
+    <a class="index-item" href="#canais"><div class="index-num">07</div><div class="index-label">Canais oficiais<small>Coordenação e contatos</small></div><div class="index-arrow">→</div></a>
+  </nav>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Sumário</span><span class="dot"></span><span>02</span></span></div>
+</section>
+
+<!-- 3. BOAS-VINDAS -->
+<section class="s" id="boas-vindas" data-screen-label="03 Boas-vindas">
+  <div class="title-block">
+    <span class="eyebrow">Boas-vindas</span>
+    <h2>Uma palavra<br/><em>do Wesley</em></h2>
+  </div>
+  <div class="welcome-grid">
+    <div class="photo"><img src="Fotos Wesley Teixeira - por Fellipe Seixas -31.jpg" alt="Wesley Teixeira" loading="lazy" /></div>
+    <div class="welcome-body">
+      <p>Oi, tudo bem? Aqui é o Wesley.</p>
+      <p>Antes de qualquer coisa: <strong>obrigado</strong>. Você escolheu estar aqui, e isso significa muito. Você não entrou numa campanha — você entrou num projeto que começou muito antes das urnas e que vai continuar muito depois delas.</p>
+      <p>Eu saí do Morro do Sapo, em Caxias. Tranquei a universidade porque não tinha dinheiro para continuar. Ajudei a puxar 40 mil pessoas nas Jornadas de Junho na Baixada. Criei, junto com muita gente, um pré-vestibular popular do zero — e a gente já colocou mais de 300 jovens na universidade. Na pandemia, a nossa rede entregou 45 mil cestas. <strong>Nada disso fui eu sozinho.</strong> Foi sempre a gente.</p>
+      <p>Eu não sou um político que virou ativista. Eu sou um ativista que, agora, está disputando um espaço dentro da ALERJ para que as políticas de educação, de permanência, de combate à fome e de cuidado com as periferias sejam decididas por quem conhece essas realidades por dentro.</p>
+      <div class="welcome-pull">A gente já provou que, quando se une, <em>muda.</em> E vamos mudar de novo.</div>
+      <div class="signature">— Wesley Teixeira<small>Pré-candidato a Deputado Estadual · PSB</small></div>
+    </div>
+  </div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Boas-vindas</span><span class="dot"></span><span>03</span></span></div>
+</section>
+
+<!-- 4. FRENTES — overview -->
+<section class="s" id="frentes" data-screen-label="04 Frentes">
+  <div class="title-block">
+    <span class="eyebrow">Como a gente se organiza</span>
+    <h2>As frentes <em>de voluntariado</em></h2>
+    <div class="deck">Todo voluntário assume um pacote básico (frente <b>Todos</b>) e escolhe pelo menos uma das <b>quatro frentes especializadas</b>, de acordo com perfil e tempo disponível. Você pode estar em mais de uma — o importante é ser realista.</div>
+  </div>
+  <div class="frentes-grid">
+    <div class="frente-card transversal">
+      <div class="frente-num">Frente transversal</div>
+      <div class="frente-name">Todos</div>
+      <div class="frente-desc">Toda ação é bem-vinda e encorajada. Nenhuma é obrigatória — escolha o que faz sentido com seu tempo e afinidade.</div>
+    </div>
+    <div class="frente-card f1">
+      <div class="frente-num">Frente 01</div>
+      <div class="frente-name">Replicadores das Redes Sociais</div>
+      <div class="frente-desc">Se você quer contribuir sem precisar criar nada. Só estar presente e multiplicar o que já existe.</div>
+    </div>
+    <div class="frente-card f2">
+      <div class="frente-num">Frente 02</div>
+      <div class="frente-name">Gabinete da Periferia</div>
+      <div class="frente-desc">Se você cria conteúdo, edita vídeo, desenha, escreve ou domina redes. Produz o que alimenta a campanha.</div>
+    </div>
+    <div class="frente-card f3">
+      <div class="frente-num">Frente 03</div>
+      <div class="frente-name">Conversar e Organizar</div>
+      <div class="frente-desc">Se você gosta de gente, de conversar e articular encontros. É o coração do voto-a-voto.</div>
+    </div>
+    <div class="frente-card f3" style="background: var(--cream-2);">
+      <div class="frente-num">Frente 04</div>
+      <div class="frente-name">Operação</div>
+      <div class="frente-desc">Se você topa botar a mão na massa em logística e eventos. Sem essa frente, nenhuma das outras acontece.</div>
+    </div>
+  </div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Frentes</span><span class="dot"></span><span>04</span></span></div>
+</section>
+
+<!-- 5. FRENTE TRANSVERSAL — TODOS -->
+<section class="s dark" data-screen-label="05 Frente Todos">
+  <div class="title-block">
+    <span class="eyebrow">Frente transversal</span>
+    <h2>O que <em>todo voluntário</em> pode fazer</h2>
+    <div class="deck">Toda ação abaixo é bem-vinda e encorajada. <b>Nenhuma é obrigatória</b> — o importante é que você escolha aquilo que faz sentido com o seu tempo e afinidade.</div>
+  </div>
+  <div class="frente-detail">
+    <div class="frente-perfil">
+      <h3>Quem participa</h3>
+      <p class="role">Todos os voluntários</p>
+      <p>Estar em uma frente especializada não te dispensa do pacote básico — pelo contrário, é a base. São ações de baixo esforço que, somadas, viram volume.</p>
+    </div>
+    <ol class="action-list">
+      <li><span>Participar dos <b>mutirões de ligação</b>.</span></li>
+      <li><span><b>Captar novos voluntários</b> no seu círculo de relações.</span></li>
+      <li><span><b>Curtir, comentar, salvar e compartilhar</b> os conteúdos da campanha nas redes sociais.</span></li>
+      <li><span>Participar de <b>plenárias, eventos e atividades</b> da campanha sempre que possível.</span></li>
+      <li><span><b>Apoiar ações de outras frentes</b> quando houver disponibilidade e afinidade.</span></li>
+    </ol>
+  </div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Frente · Todos</span><span class="dot"></span><span>05</span></span></div>
+</section>
+
+<!-- 6. FRENTE 1 — REPLICADORES -->
+<section class="s" data-screen-label="06 Frente Replicadores das Redes Sociais">
+  <div class="title-block">
+    <span class="eyebrow">Frente 01</span>
+    <h2>Replicadores das Redes Sociais</h2>
+    <div class="deck">Garante que o conteúdo da campanha chegue ao maior número possível de pessoas nas <b>redes sociais</b>, multiplicando cada publicação por meio de ações simples e consistentes. É a frente que amplifica cada post, cada story, cada conteúdo que a campanha produz.</div>
+  </div>
+  <div class="frente-detail">
+    <div class="frente-perfil">
+      <h3>Perfil</h3>
+      <p class="role">Pouco tempo, muita rede</p>
+      <p>Pessoas que querem contribuir com a campanha mas têm pouco tempo disponível. <b>Não é preciso criar nada</b> — só estar presente e multiplicar o que já existe.</p>
+    </div>
+    <ol class="action-list">
+      <li><span><b>Curtir, comentar, salvar e compartilhar</b> os conteúdos das redes sociais da campanha de forma regular.</span></li>
+      <li><span><b>Encaminhar os conteúdos</b> da campanha para grupos de WhatsApp dos quais você já faz parte — família, amigos, trabalho, comunidade.</span></li>
+      <li><span>Criar e manter <b>listas de transmissão no WhatsApp</b> com contatos próximos para envio dos conteúdos semanais.</span></li>
+      <li><span>Participar dos <b>mutirões de envio de mensagens</b> coordenados pela campanha.</span></li>
+    </ol>
+  </div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Frente · Replicadores das Redes Sociais</span><span class="dot"></span><span>06</span></span></div>
+</section>
+
+<!-- 7. FRENTE 2 — GABINETE DA PERIFERIA -->
+<section class="s" data-screen-label="07 Frente Gabinete da Periferia">
+  <div class="title-block">
+    <span class="eyebrow">Frente 02</span>
+    <h2>Gabinete da <em>Periferia</em></h2>
+    <div class="deck">Produz o conteúdo que alimenta a campanha — textos, vídeos, artes e memes que traduzem a mensagem do Wesley para cada rede e cada público.</div>
+  </div>
+  <div class="frente-detail">
+    <div class="frente-perfil">
+      <h3>Perfil</h3>
+      <p class="role">Quem cria conteúdo</p>
+      <p>Pessoas que já têm familiaridade com redes, produzem conteúdo, editam vídeos, desenham, escrevem, fazem memes ou simplesmente postam com frequência.</p>
+    </div>
+    <ol class="action-list">
+      <li><span>Mobilizar pessoas para <b>produção de conteúdo</b> (redação, design, vídeo).</span></li>
+      <li><span>Postar <b>stories próprios</b> apresentando o Wesley — contando por que você entrou.</span></li>
+      <li><span>Postar <b>reels próprios</b> apresentando o Wesley (e replicar em outras redes).</span></li>
+      <li><span>Produzir <b>cortes curtos</b> de vídeos do Wesley com frases de efeito.</span></li>
+      <li><span>Criar <b>memes, figurinhas e imagens</b> com apoio de IA.</span></li>
+    </ol>
+  </div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Frente · Gabinete da Periferia</span><span class="dot"></span><span>07</span></span></div>
+</section>
+
+<!-- 8. FRENTE 3 — CONVERSAR E ORGANIZAR -->
+<section class="s" data-screen-label="08 Frente Conversar e Organizar">
+  <div class="title-block">
+    <span class="eyebrow">Frente 03</span>
+    <h2>Conversar <em>e organizar</em> pessoas</h2>
+    <div class="deck">É o coração do voto-a-voto. Constrói os espaços de diálogo onde o Wesley e o projeto ganham adesão de verdade.</div>
+  </div>
+  <div class="frente-detail">
+    <div class="frente-perfil">
+      <h3>Perfil</h3>
+      <p class="role">Quem gosta de gente</p>
+      <p>Pessoas que conversam cara a cara, têm boa rede de amigos, família e comunidade, e se sentem à vontade articulando encontros.</p>
+    </div>
+    <ol class="action-list">
+      <li><span>Participar de <b>plenárias</b> e convidar amigos para irem junto.</span></li>
+      <li><span>Organizar <b>grupos de WhatsApp</b> com amigos e familiares para compartilhar conteúdo e debater.</span></li>
+      <li><span>Organizar <b>reuniões e rodas de conversa</b> nas suas redes de convivência.</span></li>
+      <li><span><b>Captar novos voluntários</b>.</span></li>
+      <li><span>Ajudar na <b>organização e acolhimento</b> de voluntários recém-chegados.</span></li>
+    </ol>
+  </div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Frente · Conversar</span><span class="dot"></span><span>08</span></span></div>
+</section>
+
+<!-- 9. FRENTE 4 — OPERAÇÃO -->
+<section class="s" data-screen-label="09 Frente Operação">
+  <div class="title-block">
+    <span class="eyebrow">Frente 04</span>
+    <h2>Operação</h2>
+    <div class="deck">Garante que tudo funcione na prática. Sem essa frente, nenhuma das outras acontece.</div>
+  </div>
+  <div class="frente-detail">
+    <div class="frente-perfil">
+      <h3>Perfil</h3>
+      <p class="role">Mão na massa</p>
+      <p>Pessoas disponíveis para tarefas práticas, logística, deslocamento e presença em eventos.</p>
+    </div>
+    <ol class="action-list">
+      <li><span>Apoio em <b>eventos</b>: recepção, lista de presença, organização do espaço.</span></li>
+      <li><span>Disponibilizar <b>espaço da própria casa</b> para apoio logístico (armazenar materiais, por exemplo).</span></li>
+      <li><span><b>Transporte e entrega</b> de materiais.</span></li>
+    </ol>
+  </div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Frente · Operação</span><span class="dot"></span><span>09</span></span></div>
+</section>
+
+<!-- 10. PRÉ-CAMPANHA — REGRAS -->
+<section class="s" id="regras" data-screen-label="10 Pré-campanha pode e não pode">
+  <div class="title-block">
+    <span class="eyebrow">Regras da pré-campanha</span>
+    <h2>O que <em>pode</em> e o que <em>não pode</em></h2>
+    <div class="deck">Estamos em <b>pré-campanha</b>. A propaganda eleitoral só é autorizada a partir de <b>16 de agosto de 2026</b>. Lei nº 9.504/97 e resoluções do TSE.</div>
+  </div>
+  <div class="rules-grid">
+    <div class="rule-col yes">
+      <div class="rule-head"><span class="rule-mark">✓</span>Pode agora</div>
+      <ul class="rule-list">
+        <li>Apresentar o <b>Wesley</b>, sua trajetória e suas propostas.</li>
+        <li>Convidar pessoas para <b>plenárias, rodas de conversa</b> e eventos.</li>
+        <li>Compartilhar <b>conteúdo nas redes sociais</b>.</li>
+        <li>Formar <b>grupos de WhatsApp</b> e listas de transmissão.</li>
+        <li>Organizar <b>comícios caseiros</b> e encontros em ambientes privados.</li>
+      </ul>
+    </div>
+    <div class="rule-col no">
+      <div class="rule-head"><span class="rule-mark">✕</span>Não pode até 16/08</div>
+      <ul class="rule-list">
+        <li><b>Pedir voto de forma explícita</b> (“vote no Wesley”, “vote 40” etc).</li>
+        <li>Distribuir <b>material de campanha clássico</b> (santinho, adesivo com número).</li>
+        <li>Fazer <b>propaganda eleitoral paga</b> de qualquer tipo.</li>
+        <li><b>Arrecadar doações</b> em dinheiro (só após registro da candidatura, via plataforma oficial).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="rule-note"><b>Regra de ouro:</b> em dúvida sobre uma ação específica, <b>não publique</b> e pergunte à coordenação <b>antes</b> de fazer.</div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Pré-campanha</span><span class="dot"></span><span>10</span></span></div>
+</section>
+
+<!-- 11. RITMO SEMANAL -->
+<section class="s" id="ritmo" data-screen-label="11 Ritmo semanal">
+  <div class="title-block">
+    <span class="eyebrow">Ritmo semanal</span>
+    <h2>Três compromissos <em>que ancoram</em> a semana</h2>
+    <div class="deck">A pré-campanha tem um ritmo fixo. É em torno dele que todas as frentes se organizam.</div>
+  </div>
+  <div class="ritmo-grid">
+    <div class="ritmo-card">
+      <div class="ritmo-num">01</div>
+      <div class="ritmo-title">Acolhimento e capacitação</div>
+      <div class="ritmo-body">Uma vez por semana, encontro aberto para receber novos voluntários, apresentar a campanha, tirar dúvidas e capacitar sobre legislação, tom de voz, redes e plenárias. Todo recém-chegado é convidado a participar do primeiro encontro possível.</div>
+    </div>
+    <div class="ritmo-card">
+      <div class="ritmo-num">02</div>
+      <div class="ritmo-title">Voluntários engajados</div>
+      <div class="ritmo-body">Uma vez por semana, encontro de acompanhamento de quem já está em atividade. Espaço para alinhar o andamento das missões, trocar experiências entre frentes e construir os próximos passos.</div>
+    </div>
+    <div class="ritmo-card">
+      <div class="ritmo-num">03</div>
+      <div class="ritmo-title">Envio de missões</div>
+      <div class="ritmo-body">Uma vez por semana, a coordenadora de voluntários envia as missões da semana para cada frente pelos canais oficiais. Todo mundo começa a semana sabendo o que fazer, até quando e como a entrega será acompanhada.</div>
+    </div>
+  </div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Ritmo</span><span class="dot"></span><span>11</span></span></div>
+</section>
+
+<!-- 12. MISSÕES -->
+<section class="s" data-screen-label="12 Como funcionam as missões">
+  <div class="title-block">
+    <span class="eyebrow">Missões</span>
+    <h2>Como <em>funcionam</em> as missões</h2>
+    <div class="deck">Pequenas tarefas com prazo curto, resultado mensurável e grau de dificuldade variado. É o jeito mais simples de transformar vontade de ajudar em ação concreta, sem ninguém ficar perdido.</div>
+  </div>
+  <div class="missoes-block">
+    <div class="mission-formula">
+      <div class="mission-pill">
+        <div class="mission-pill-label">01 · O quê</div>
+        <div class="mission-pill-text">O que precisa ser feito</div>
+      </div>
+      <div class="mission-pill">
+        <div class="mission-pill-label">02 · Até quando</div>
+        <div class="mission-pill-text">O prazo da entrega</div>
+      </div>
+      <div class="mission-pill">
+        <div class="mission-pill-label">03 · Como medir</div>
+        <div class="mission-pill-text">Como a coordenação acompanha</div>
+      </div>
+    </div>
+    <div class="mission-examples">
+      <h3>Exemplos de missão</h3>
+      <ul class="mission-list">
+        <li class="mission-item">
+          <div class="mission-tag">Replicadores das Redes Sociais</div>
+          <div class="mission-text"><q>Esta semana, encaminhe o vídeo que a campanha enviou para pelo menos 3 grupos de WhatsApp que você já participa.</q></div>
+        </li>
+        <li class="mission-item">
+          <div class="mission-tag">Gabinete da Periferia</div>
+          <div class="mission-text"><q>Neste fim de semana, produza e publique 1 reel próprio apresentando o Wesley e marque a campanha.</q></div>
+        </li>
+        <li class="mission-item">
+          <div class="mission-tag">Conversar e Organizar</div>
+          <div class="mission-text"><q>Convide 5 pessoas para a próxima plenária e confirme presença no formulário.</q></div>
+        </li>
+        <li class="mission-item">
+          <div class="mission-tag">Operação</div>
+          <div class="mission-text"><q>Apoie a recepção do Festival Brasil Baixada no dia X, das 14h às 18h.</q></div>
+        </li>
+        <li class="mission-item">
+          <div class="mission-tag">Para todos</div>
+          <div class="mission-text"><q>Participe do mutirão de envio de mensagens da semana — meta: 20 contatos.</q></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Missões</span><span class="dot"></span><span>12</span></span></div>
+</section>
+
+<!-- 13. RECONHECIMENTO -->
+<section class="s" id="reconhecimento" data-screen-label="13 Reconhecimento">
+  <div class="title-block">
+    <span class="eyebrow">Reconhecimento</span>
+    <h2>Como a gente <em>reconhece</em><br/>quem se dedica</h2>
+    <div class="deck">A campanha não paga voluntários — e isso é uma regra, não uma limitação de recursos. O que a gente faz é reconhecer publicamente o trabalho de quem está junto, oferecer oportunidades de crescimento dentro da campanha e cuidar para que ninguém se sinta invisível.</div>
+  </div>
+  <div class="reco-grid">
+    <div class="reco-card">
+      <div class="reco-icon">01</div>
+      <div class="reco-title">Reconhecimento público</div>
+      <div class="reco-body">Menções nas redes da campanha, destaque em reuniões, espaço para falar em plenárias.</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-icon">02</div>
+      <div class="reco-title">Proximidade com o Wesley</div>
+      <div class="reco-body">Encontros específicos da coordenação com o candidato, momentos de escuta e troca.</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-icon">03</div>
+      <div class="reco-title">Crescimento de responsabilidades</div>
+      <div class="reco-body">Quem se destaca pode ser convidado a coordenar uma sub-frente, um núcleo territorial ou uma ação específica.</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-icon">04</div>
+      <div class="reco-title">Materiais e formação</div>
+      <div class="reco-body">Acesso a conteúdos de formação política, oficinas de comunicação e encontros de capacitação.</div>
+    </div>
+  </div>
+  <div class="rule-note"><b>Observação legal:</b> o voluntariado é, por definição, não remunerado (Lei nº 9.608/98 e Lei nº 9.504/97). O reconhecimento oferecido é sempre simbólico, formativo ou relacional. <b>Nenhum voluntário recebe pagamento, vantagem material, promessa de cargo ou favor</b> em troca do trabalho. Qualquer oferta nesse sentido deve ser comunicada imediatamente à coordenação.</div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Reconhecimento</span><span class="dot"></span><span>13</span></span></div>
+</section>
+
+<!-- 14. TRAGA MAIS GENTE -->
+<section class="s" id="convite" data-screen-label="14 Traga mais gente">
+  <div class="title-block">
+    <span class="eyebrow">Sua primeira missão</span>
+    <h2>Traga <em>mais gente</em></h2>
+    <div class="deck">A política tradicional cresce de cima para baixo. <b>A nossa cresce por dentro</b> — pelas mãos de quem já está. Cada voluntário que entra é uma nova ponte com uma nova rede, uma nova casa, um novo grupo, uma nova rua.</div>
+  </div>
+  <div class="convite-grid">
+    <ol class="convite-steps">
+      <li class="convite-step">
+        <div class="convite-step-num">1</div>
+        <div class="convite-step-body">
+          <div class="convite-step-title">Fale com a sua verdade</div>
+          <div class="convite-step-text">Conte, em uma frase, <em>por que VOCÊ topou</em>. Não precisa de discurso pronto. O que convence é a sua história, não a nossa.</div>
+        </div>
+      </li>
+      <li class="convite-step">
+        <div class="convite-step-num">2</div>
+        <div class="convite-step-body">
+          <div class="convite-step-title">Explique em 30 segundos quem é o Wesley</div>
+          <div class="convite-step-text"><em>“É um cara da Baixada, ativista, ajudou a criar um pré-vestibular popular, está se candidatando a deputado estadual pelo PSB.”</em> É isso. Simples.</div>
+        </div>
+      </li>
+      <li class="convite-step">
+        <div class="convite-step-num">3</div>
+        <div class="convite-step-body">
+          <div class="convite-step-title">Faça um convite concreto</div>
+          <div class="convite-step-text">Não convide para “apoiar”. Convide para <em>uma plenária</em>, para <em>entrar no grupo</em>, para <em>uma roda de conversa</em>. Pessoas topam coisas específicas, não coisas abstratas.</div>
+        </div>
+      </li>
+    </ol>
+    <div class="photo natural"><img src="Fotos Wesley Teixeira - por Fellipe Seixas -31.jpg" alt="Wesley Teixeira de braços abertos" loading="lazy" /></div>
+  </div>
+  <div class="welcome-pull" style="margin-top:0;">Uma pessoa que você convida hoje pode convidar outras cinco amanhã. É assim que a gente sai de uma campanha pequena <em>para uma campanha vitoriosa.</em></div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Convite</span><span class="dot"></span><span>14</span></span></div>
+</section>
+
+<!-- 15. CANAIS OFICIAIS -->
+<section class="s dark" id="canais" data-screen-label="15 Canais oficiais">
+  <div class="title-block">
+    <span class="eyebrow">Canais oficiais</span>
+    <h2>Coordenação <em>e contatos</em></h2>
+    <div class="deck">Esta seção será completada pela coordenação assim que os canais estiverem definidos. Até lá, em caso de dúvida, procure diretamente a pessoa que te convidou para a pré-campanha.</div>
+  </div>
+  <ul class="canais-list">
+    <li class="canais-item"><div class="canais-label">Telefone do Perifa</div><div class="canais-value">21 99061-5277</div></li>
+    <li class="canais-item"><div class="canais-label">E-mail dos voluntários</div><div class="canais-value"><a href="mailto:voluntariadowesleyteixeira@gmail.com">voluntariadowesleyteixeira@gmail.com</a></div></li>
+    <li class="canais-item"><div class="canais-label">Grupos de WhatsApp</div><div class="canais-value"><a href="https://chat.whatsapp.com/L0wjFNF0qTTH6Sj9PJAYN7" target="_blank">Acesse o grupo</a></div></li>
+  </ul>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Canais</span><span class="dot"></span><span>15</span></span></div>
+</section>
+
+<!-- 16. CLOSING -->
+<section class="s closing" data-screen-label="16 Encerramento">
+  <div class="closing-eyebrow">Wesley Teixeira · Deputado Estadual · PSB 2026</div>
+  <div class="closing-display">Faça parte<em>desse time.</em></div>
+  <div class="cover-sub" style="font-size: var(--fs-quote); font-family: 'Archivo Narrow', sans-serif; font-weight: 700; line-height: 1.05; color: var(--paper); opacity: 1;">E a gente vai <em style="font-style: normal; color: var(--gold);">junto.</em></div>
+  <div class="closing-foot">
+    <span class="pill">Perifa Rio</span>
+    <span class="pill">PSB</span>
+    <span>Cartilha do Voluntário · 2026</span>
+  </div>
+  <div class="footer"><span>Cartilha do Voluntário</span><span class="right"><span>Encerramento</span><span class="dot"></span><span>16</span></span></div>
+</section>
+
+<button class="totop" aria-label="Voltar ao topo">↑</button>
+
+<script>
+  const btn = document.querySelector('.totop');
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('show', window.scrollY > 600);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
