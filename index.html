@@ -293,13 +293,16 @@
         grid-template-columns: 1fr;
         gap: 40px;
         text-align: center;
+        align-items: flex-end;
       }
       .hero-content {
         text-align: center;
+        padding-top: 40px;
       }
       .hero-photo-hero {
         max-width: 745px;
         margin: 0 auto;
+        align-items: flex-end;
       }
       .hero-photo-badge {
         font-size: 0.8rem;
@@ -1270,8 +1273,11 @@
       <div class="celebration-icon">🎉</div>
       <h1 class="celebration-title">Você faz parte agora!</h1>
       <p class="celebration-subtitle">Bem-vindo à campanha da periferia para a ALERJ</p>
-      <p class="celebration-message">
+      <p class="celebration-message" id="celebrationMessage">
         Sua inscrição foi confirmada. Nos acompanhe nas redes sociais e fique ligado em tudo que está acontecendo.
+      </p>
+      <p class="celebration-message" id="celebrationVoluntarioMsg" style="display:none; margin-top: -16px; font-weight: 600; color: rgba(255,255,255,.95);">
+        A coordenação da campanha entrará em contato com você em até 2 dias úteis com os próximos passos.
       </p>
 
       <div class="celebration-redes">
@@ -1650,6 +1656,7 @@
         const img = new Image();
         img.onload = img.onerror = () => {
           form.style.display = 'none';
+          document.getElementById('celebrationVoluntarioMsg').style.display = voluntario ? 'block' : 'none';
           document.getElementById('celebrationScreen').classList.add('show');
           criarConfete();
         };
@@ -1657,6 +1664,7 @@
       } catch (error) {
         console.error('Erro ao enviar para o Sheets:', error);
         form.style.display = 'none';
+        document.getElementById('celebrationVoluntarioMsg').style.display = voluntario ? 'block' : 'none';
         document.getElementById('celebrationScreen').classList.add('show');
         criarConfete();
       }
